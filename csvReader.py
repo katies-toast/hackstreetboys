@@ -35,12 +35,31 @@ for column in ["EEG Fpz-Cz", "EEG Pz-Oz", "EOG horizontal", "EMG submental"]:
 # Save filtered data to a new CSV file
 filtered_data.to_csv("filtered_psg_data.csv", index=False)
 
-# Plot example to verify filtering
-plt.figure(figsize=(10, 6))
+
+"""
+For visualizing the difference between the filtered and original EEG data
+# Plotting both figures in one window
+plt.figure(figsize=(14, 6))
+
+# First subplot: EEG Fpz-Cz
+plt.subplot(1, 2, 1)  # 1 row, 2 columns, 1st subplot
 plt.plot(data["EEG Fpz-Cz"][:1000], label="Original EEG Fpz-Cz")
 plt.plot(filtered_data["EEG Fpz-Cz"][:1000], label="Filtered EEG Fpz-Cz", linestyle="--")
 plt.legend()
 plt.title("EEG Fpz-Cz: Original vs. Filtered")
 plt.xlabel("Samples")
 plt.ylabel("Amplitude (µV)")
+
+# Second subplot: EEG Pz-Oz
+plt.subplot(1, 2, 2)  # 1 row, 2 columns, 2nd subplot
+plt.plot(data["EEG Pz-Oz"][:1000], label="Original EEG Pz-Oz")
+plt.plot(filtered_data["EEG Pz-Oz"][:1000], label="Filtered EEG Pz-Oz", linestyle="--")
+plt.legend()
+plt.title("EEG Pz-Oz: Original vs. Filtered")
+plt.xlabel("Samples")
+plt.ylabel("Amplitude (µV)")
+
+# Show the plot
+plt.tight_layout()  # Adjusts subplots to fit nicely
 plt.show()
+"""
